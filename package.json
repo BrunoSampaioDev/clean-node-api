@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "pre-commit": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test:staged": "jest"
   },
   "keywords": [],
   "author": "",
