@@ -1,4 +1,3 @@
 {
   "src/**/*.+(js|ts)": ["eslint", "npm run test:staged"],
-  "src/**/*.{js,ts}": ["prettier --write"]
 }
