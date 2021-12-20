@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --passWithNoTests --silent --noStackTrace --coverage=false --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
-    "test:unit": "npm test -- --watch -- -c jest-unit-config.js",
+    "test:unit": "npm test -- --watch",
     "test:integration": "npm test -- --watch -- -c jest-integration-config.js",
     "pre-commit": "lint-staged",
     "pre-push": "npm run test:ci",
