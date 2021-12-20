@@ -4,10 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests --watch",
+    "test": "jest --passWithNoTests --silent --noStackTrace --coverage=false --runInBand",
+    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:unit": "npm test -- --watch -- -c jest-unit-config.js",
+    "test:integration": "npm test -- --watch -- -c jest-integration-config.js",
     "pre-commit": "lint-staged",
+    "pre-push": "npm run test:ci",
     "prepare": "husky install",
-    "test:staged": "jest --passWithNoTests"
+    "test:staged": "npm test -- --findRelatedTests",
+    "test:ci": "npm test -- --coverage"
   },
   "keywords": [],
   "author": "",
