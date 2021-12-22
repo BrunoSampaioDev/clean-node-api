@@ -2,6 +2,7 @@ export default {
   roots: ['<rootDir>'],
   clearMocks: true,
   collectCoverage: true,
+  preset: '@shelf/jest-mongodb',
   collectCoverageFrom: [
     '<rootDir>/src/**/*.ts',
     '!<rootDir>/src/main/**',
