@@ -9,6 +9,7 @@ export default {
     '!**/protocols/**',
     '!**/test/**'
   ],
+  watchPathIgnorePatterns: ['globalConfig'],
   coverageDirectory: 'coverage',
   coverageProvider: 'babel',
   testEnvironment: 'node',
