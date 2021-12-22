@@ -2,10 +2,15 @@ export default {
   roots: ['<rootDir>'],
   clearMocks: true,
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.ts',
+    '!<rootDir>/src/main/**',
+    '!<rootDir>/src/**/*-protocols.ts',
+    '!**/protocols/**',
+    '!**/test/**'
+  ],
   coverageDirectory: 'coverage',
-  coverageProvider: 'v8',
-  // jest-environment-node
+  coverageProvider: 'babel',
   testEnvironment: 'node',
   transform: {
     '.+\\.ts$': 'ts-jest'
