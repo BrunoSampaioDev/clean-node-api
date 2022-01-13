@@ -1,7 +1,7 @@
 import { InvalidParamError, MissingParamError, ServerError } from '../../errors'
 import { badRequest, ok, serverError } from '../../helpers/http-helper'
 import { SignUpController } from './signup'
-import { EmailValidator, AddAccount, AddAccountModel, AccountModel, HttpRequest } from './signup-protocols'
+import { EmailValidator, AddAccount, AddAccountModel, AccountModel, HttpRequest, Validation } from './signup-protocols'
 
 const makeEmailValidator = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {
@@ -19,6 +19,15 @@ const makeAddAccount = (): AddAccount => {
     }
   }
   return new AddAccountStub()
+}
+
+const makeValidation = (): Validation => {
+  class ValidationStub implements Validation {
+    validate (input: any): Error {
+      return null
+    }
+  }
+  return new ValidationStub()
 }
 
 const makeFakeAccount = (): AccountModel => ({
@@ -41,17 +50,19 @@ interface SutTypes {
   sut: SignUpController
   emailValidatorStub: EmailValidator
   addAccountStub: AddAccount
+  validationStub: Validation
 }
 
 const makeSut = (): SutTypes => {
   const emailValidatorStub = makeEmailValidator()
   const addAccountStub = makeAddAccount()
-
-  const sut = new SignUpController(emailValidatorStub, addAccountStub)
+  const validationStub = makeValidation()
+  const sut = new SignUpController(emailValidatorStub, addAccountStub, validationStub)
   return {
     sut,
     emailValidatorStub,
-    addAccountStub
+    addAccountStub,
+    validationStub
   }
 }
 describe('SignUp Controller', () => {
@@ -175,5 +186,13 @@ describe('SignUp Controller', () => {
 
     const httpResponse = await sut.handle(makeFakeRequest())
     expect(httpResponse).toEqual(ok(makeFakeAccount()))
+  })
+
+  test('should call Validation with correct values', async () => {
+    const { sut, validationStub } = makeSut()
+    const validateSpy = jest.spyOn(validationStub, 'validate')
+    const httpRequest = makeFakeRequest()
+    await sut.handle(httpRequest)
+    expect(validateSpy).toHaveBeenCalledWith(httpRequest.body)
   })
 })
