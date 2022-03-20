@@ -13,7 +13,7 @@
     "pre-push": "npm run test:ci",
     "prepare": "husky install",
     "test:staged": "npm test -- --findRelatedTests",
-    "test:ci": "npm test -- --coverage"
+    "test:ci": "npm test -- --coverage",
     "test:coverage": "npm test -- --coverage"
   },
   "keywords": [],
