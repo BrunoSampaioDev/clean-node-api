@@ -36,14 +36,14 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Install dependencies
-        run: yarn
+#       - name: Install dependencies
+#         run: yarn
       
       - name: Check linting
-        run: yarn pre-commit
+        run: npm run pre-commit
         
       - name: Run tests
-        run: yarn test:coverage
+        run: npm run test:coverage
         
       - name: Coveralls
         uses: coverallsapp/github-action@master
