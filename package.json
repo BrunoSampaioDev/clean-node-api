@@ -48,7 +48,7 @@
     "express": "^4.17.2",
     "fast-glob": "^3.2.7",
     "mongodb": "^4.2.2",
-    "supertest": "^6.1.6",
+    "supertest": "^6.2.2",
     "validator": "^13.7.0"
   }
 }
