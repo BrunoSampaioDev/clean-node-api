@@ -40,7 +40,7 @@ jobs:
         run: yarn
       
       - name: Check linting
-        run: yarn lint
+        run: yarn lint-staged
         
       - name: Run tests
         run: yarn test:coverage
