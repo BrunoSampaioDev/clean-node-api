@@ -43,7 +43,7 @@ jobs:
         run: yarn lint-staged
         
       - name: Run tests
-        run: yarn test:coverage
+        run: yarn test:ci
         
       - name: Coveralls
         uses: coverallsapp/github-action@master
