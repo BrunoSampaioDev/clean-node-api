@@ -4,7 +4,7 @@ import { HashCompare } from "./db-authentication-protocols";
 
 export class DbAuthentication implements Authentication {
   private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository
-  private readonly hashCompare
+  private readonly hashCompare: HashCompare
   constructor(
     loadAccountByEmailRepository: LoadAccountByEmailRepository,
     hashCompare: HashCompare) {
