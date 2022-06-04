@@ -128,9 +128,9 @@ describe('DbAuthentication Usecase', () => {
 
   test('should call Encrypter with correct id', async () => {
     const { sut, encrypterStub } = makeSut()
-    const generateSpy = jest.spyOn(encrypterStub, 'encrypt')
+    const encryptSpy = jest.spyOn(encrypterStub, 'encrypt')
     await sut.auth(makeFakeAuthentication())
-    expect(generateSpy).toHaveBeenCalledWith('any_id')
+    expect(encryptSpy).toHaveBeenCalledWith('any_id')
   })
 
   test('should throw if Encrypter thows', async () => {
@@ -140,7 +140,7 @@ describe('DbAuthentication Usecase', () => {
     await expect(promise).rejects.toThrow()
   })
 
-  test('should call Encrypter with correct id', async () => {
+  test('should return a token on success', async () => {
     const { sut } = makeSut()
     const accessToken = await sut.auth(makeFakeAuthentication())
     expect(accessToken).toBe('any_Token')
