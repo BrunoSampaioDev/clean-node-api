@@ -22,8 +22,8 @@ const makeFakeAuthentication = (): AuthenticationModel => ({
 
 const makeLoadAccountByEmailRepository = (): LoadAccountByEmailRepository => {
   class LoadAccountByEmailRepositoryStub implements LoadAccountByEmailRepository {
-    async load(email: string): Promise<AccountModel> {
-      return new Promise(resolve => resolve(makeFakeAccount()))
+    async load (email: string): Promise<AccountModel> {
+      return await new Promise(resolve => resolve(makeFakeAccount()))
     }
   }
   return new LoadAccountByEmailRepositoryStub()
@@ -31,8 +31,8 @@ const makeLoadAccountByEmailRepository = (): LoadAccountByEmailRepository => {
 
 const makeUpdateAccessTokenRepository = (): UpdateAccessTokenRepository => {
   class UpdateAccessTokenRepositoryStub implements UpdateAccessTokenRepository {
-    async update(id: string, token: string): Promise<void> {
-      return new Promise(resolve => resolve())
+    async update (id: string, token: string): Promise<void> {
+      return await new Promise(resolve => resolve())
     }
   }
   return new UpdateAccessTokenRepositoryStub()
@@ -40,8 +40,8 @@ const makeUpdateAccessTokenRepository = (): UpdateAccessTokenRepository => {
 
 const makeHashCompare = (): HashCompare => {
   class HashCompareStub implements HashCompare {
-    async compare(value: string, hash: string): Promise<boolean> {
-      return new Promise(resolve => resolve(true))
+    async compare (value: string, hash: string): Promise<boolean> {
+      return await new Promise(resolve => resolve(true))
     }
   }
   return new HashCompareStub()
@@ -49,8 +49,8 @@ const makeHashCompare = (): HashCompare => {
 
 const makeEncrypter = (): Encrypter => {
   class EncrypterStub implements Encrypter {
-    async encrypt(id: string): Promise<string> {
-      return new Promise(resolve => resolve('any_Token'))
+    async encrypt (id: string): Promise<string> {
+      return await new Promise(resolve => resolve('any_Token'))
     }
   }
   return new EncrypterStub()

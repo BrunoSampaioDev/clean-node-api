@@ -5,7 +5,7 @@ import {
   LoadAccountByEmailRepository,
   Encrypter,
   UpdateAccessTokenRepository
-} from "./db-authentication-protocols";
+} from './db-authentication-protocols'
 
 export class DbAuthentication implements Authentication {
   private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository
@@ -13,7 +13,7 @@ export class DbAuthentication implements Authentication {
   private readonly encrypter: Encrypter
   private readonly updateAccessTokenRepository: UpdateAccessTokenRepository
 
-  constructor(
+  constructor (
     loadAccountByEmailRepository: LoadAccountByEmailRepository,
     hashCompare: HashCompare,
     encrypter: Encrypter,
@@ -25,7 +25,7 @@ export class DbAuthentication implements Authentication {
     this.updateAccessTokenRepository = updateAccessTokenRepository
   }
 
-  async auth(authentication: AuthenticationModel): Promise<string> {
+  async auth (authentication: AuthenticationModel): Promise<string> {
     const account = await this.loadAccountByEmailRepository.load(authentication.email)
     if (account) {
       const isValid = await this.hashCompare.compare(authentication.password, account.password)
@@ -36,7 +36,6 @@ export class DbAuthentication implements Authentication {
         return accessToken
       }
     }
-    return null;
+    return null
   };
-
 }
