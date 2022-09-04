@@ -2,13 +2,13 @@
     <p>
         <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/language-typescript-blue" alt="Repo Main Language" /></a>
         <img src="https://coveralls.io/repos/github/BrunoSampaioDev/clean-node-api/badge.svg?branch=main" alt="Coveralls" />
+        <img src="https://snyk.io/test/github/BrunoSampaioDev/clean-node-api/badge.svg" alt="Coveralls" />
     </p>
     <p>
         <a href="https://www.linkedin.com/in/bruno-sampaio-a374b1170/" target="_blank">
         <img src="https://img.shields.io/twitter/url?label=Connect%20%40BrunoSampaio&logo=linkedin&url=https%3A%2F%2F%2%2F" alt="Follow" />
         </a>
     <p>
-
 </div>
 
 ### Objetivo
