@@ -1,3 +1,16 @@
+<div align="center">  
+    <p>
+        <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/language-typescript-blue" alt="Repo Main Language" /></a>
+        <img src="https://coveralls.io/repos/github/BrunoSampaioDev/clean-node-api/badge.svg?branch=main" alt="Coveralls" />
+    </p>
+    <p>
+        <a href="https://www.linkedin.com/in/bruno-sampaio-a374b1170/" target="_blank">
+        <img src="https://img.shields.io/twitter/url?label=Connect%20%40BrunoSampaio&logo=linkedin&url=https%3A%2F%2F%2%2F" alt="Follow" />
+        </a>
+    <p>
+
+</div>
+
 ### Objetivo
 
 O objetivo deste projeto criar uma API com uma arquitetura bem definida e desacoplada, utilizando TDD (programação orientada a testes) como metodologia de trabalho, Clean Architecture para fazer a distribuição de responsabilidades em camadas, sempre seguindo os princípios do SOLID e, sempre que possível, aplicando Design Patterns para resolver alguns problemas comuns.
