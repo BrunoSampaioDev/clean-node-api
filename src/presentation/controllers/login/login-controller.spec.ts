@@ -5,7 +5,7 @@ import {
   Validation,
   AuthenticationModel
 } from './login-protocols'
-import { LoginController } from './login'
+import { LoginController } from './login-controller'
 import {
   badRequest,
   ok,
@@ -15,7 +15,7 @@ import {
 
 const makeAuthentication = (): Authentication => {
   class AuthenticationStub implements Authentication {
-    async auth (authentication: AuthenticationModel): Promise<string> {
+    async auth(authentication: AuthenticationModel): Promise<string> {
       return await new Promise((resolve) => resolve('any_token'))
     }
   }
@@ -24,7 +24,7 @@ const makeAuthentication = (): Authentication => {
 
 const makeValidation = (): Validation => {
   class ValidationStub implements Validation {
-    validate (input: any): Error {
+    validate(input: any): Error {
       return null
     }
   }
