@@ -7,11 +7,11 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches:
-    - main
+      - main
 
   pull_request:
     branches:
-    - main
+      - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,26 +25,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-
       - name: Install Node.js
         uses: actions/setup-node@v1
-        with: 
-          node-version: '14.x'
-      
-      
+        with:
+          node-version: "16.x"
+
       - uses: actions/checkout@v2.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Install dependencies
-        run: yarn
-      
-      - name: Check linting
-        run: yarn lint-staged
-        
+        run: npm install
+
+      # - name: Check linting
+      #   run: yarn lint-staged
+
       - name: Run tests
-        run: yarn test:ci
-        
+        run: npm run test:ci
+
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
