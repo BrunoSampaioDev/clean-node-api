@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "express": "^4.17.2",
+    "express": "^4.19.2",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.2.2",
     "supertest": "^6.1.6",
